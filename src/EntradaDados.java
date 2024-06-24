@@ -5,17 +5,19 @@ public class EntradaDados {
         Scanner scanner = new Scanner(System.in);
 
 
-        System.out.print("\nInteiro: ");
+        System.out.print("Inteiro: ");
         int i = scanner.nextInt();
-        System.out.print("\nBoolean: ");
+        System.out.print("Boolean: ");
         boolean b = scanner.nextBoolean();
-        System.out.print("\nDouble: ");
+        System.out.print("Double: ");
         double d = scanner.nextDouble();
-        System.out.print("\nString: ");
+        System.out.print("String: ");
         String s = scanner.next();
+        scanner.close();
 
         System.out.println(i);
         System.out.println(b);
         System.out.println(d);
+        System.out.println(s);
     }
 }
