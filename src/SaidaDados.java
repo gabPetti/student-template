@@ -1,14 +1,24 @@
 import java.util.Locale;
 
 public class SaidaDados {
-    public static void main(String[] args) {
-        String nome = "Maria";
-        String sobrenome = "Silva";
-        int idade = 18;
-        double saldo = 0.58;
+    static class Person {
+        String nome, sobrenome;
+        int idade;
+        double saldo;
 
-        System.out.println("Nome");
-        System.out.println("Idade: %d");
-        System.out.println(Locale.FRENCH, "Você tem %.2f na conta. Pobre fudida\n", saldo);
+        public Person(String cnome, String csobrenome, int cidade, double csaldo) {
+            nome = cnome;
+            sobrenome = csobrenome;
+            idade = cidade;
+            saldo = csaldo;
+        }
+    }
+
+    public static void main(String[] args) {
+        Person person = new Person("Maria", "Silva", 18, 0.58);
+
+        System.out.printf("Nome: %s %s\n", person.nome, person.sobrenome);
+        System.out.printf("Idade: %d\n", person.idade);
+        System.out.printf(Locale.FRENCH, "Você tem %.2f na conta. Pobre coitada\n", person.saldo);
     }
 }
