@@ -32,8 +32,8 @@ public class Main {
         System.out.println(a.minus(b));
         System.out.println(a.times(b));
         System.out.println(a.times(2));
-        System.out.println(a.isSquare());
+        System.out.println(b.isSquare());
         System.out.println(d.isSymmetric());
-        System.out.println(a.getTranspose());
+        System.out.println(c.getTranspose());
     }
 }
