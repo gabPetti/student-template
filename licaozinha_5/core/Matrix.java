@@ -100,6 +100,48 @@ public class Matrix {
         return mam;
     }
 
+    /**
+     * Verifica se a matriz é quadrada.
+     * 
+     * @return true se a matriz for quadrada, false caso contrário.
+     */
+    public boolean isSquare() {
+        return cells.length == cells[0].length;
+    }
+
+    /**
+     * Verifica se a matriz é simétrica.
+     * 
+     * @return true se a matriz for simétrica, false caso contrário.
+     */
+    public boolean isSymmetric() {
+        if (!this.isSquare()) return false;
+
+        for (int i = 0; i < this.getRows(); i++) {
+            for (int j = 0; j < this.getColumns(); j++) {
+                if (this.getAt(i, j) != this.getAt(j, i)) return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Retorna a matriz transposta.
+     *  
+     * @return matriz transposta.
+     */
+    public Matrix getTranspose() {
+        Matrix mam = new Matrix(new double[cells[0].length][cells.length]);
+        for (int i = 0; i < this.getRows(); i++) {
+            for (int j = 0; j < this.getColumns(); j++) {
+                mam.cells[j][i] = this.getAt(i, j);
+            }
+        }
+        
+        return mam;
+    }
+
     @Override
     public String toString() {
         StringBuilder str = new StringBuilder();
