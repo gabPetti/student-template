@@ -71,10 +71,10 @@ public class Matrix {
      * @return matriz resultante da multiplicação.
      */
     public Matrix times(Matrix m) {
-        Matrix mam = new Matrix(new double[cells.length][cells[0].length]);
-        for (int i = 0; i < mam.getRows(); i++) {
-            for (int j = 0; j < mam.getColumns(); j++) {
-                for (int k = 0; k < mam.getColumns(); k++) {
+        Matrix mam = new Matrix(new double[cells.length][m.cells[0].length]);
+        for (int i = 0; i < this.getRows(); i++) {
+            for (int j = 0; j < m.getColumns(); j++) {
+                for (int k = 0; k < this.getColumns(); k++) {
                     mam.cells[i][j] += this.getAt(i, k) * m.getAt(k, j);
                 }
             }
