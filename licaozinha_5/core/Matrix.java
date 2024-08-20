@@ -1,14 +1,35 @@
 public class Matrix {
-    private double[][] cells;
+    private final double[][] cells;
 
     public Matrix(double[][] c) {
-        this.cells = c.clone();
+        double[][] mam = new double[c.length][c[0].length];
+        for (int i = 0; i < c.length; i++) {
+            for (int j = 0; j < c[0].length; j++) {
+                mam[i][j] = c[i][j];
+            }
+        }
+        this.cells = mam;
+    }
+
+    /**
+     * Retorna a matriz em forma de array.
+     * 
+     * @return matriz em forma de array.
+     */
+    public double[][] toArray() {
+        double[][] mam = new double[cells.length][cells[0].length];
+        for (int i = 0; i < cells.length; i++) {
+            for (int j = 0; j < cells[0].length; j++) {
+                mam[i][j] = cells[i][j];
+            }
+        }
+        return mam;
     }
 
     /**
      * Retornam a quantidade de linhas da matriz.
      * 
-     * @return número de linhas da matriz.
+     * @return numero de linhas da matriz.
      */
     public int getRows() {
         return cells.length;
@@ -17,7 +38,7 @@ public class Matrix {
     /**
      * Retorna a quantidade de colunas da matriz.
      * 
-     * @return número de colunas da matriz.
+     * @return numero de colunas da matriz.
      */
     public int getColumns() {
         return cells[0].length;
@@ -25,7 +46,7 @@ public class Matrix {
 
     public double getAt(int i, int j) {
         if (i >= cells.length || j >= cells[0].length || i < 0 || j < 0) {
-            throw new IllegalArgumentException("Não pode não, malandrão");
+            throw new IllegalArgumentException("Nao pode nao, malandrao");
         }
         return cells[i][j];
     }
@@ -33,7 +54,7 @@ public class Matrix {
     /**
      * Retorna a matriz resultante da soma de duas matrizes.
      * 
-     * @param m - matriz que será somada com a matriz atual.
+     * @param m - matriz que sera somada com a matriz atual.
      * @return matriz resultante da soma.
      */
     public Matrix plus(Matrix m) {
@@ -48,10 +69,10 @@ public class Matrix {
     }
 
     /**
-     * Retorna a matriz resultante da subtração de duas matrizes.
+     * Retorna a matriz resultante da subtracao de duas matrizes.
      * 
-     * @param m - matriz que subtrairá a matriz atual.
-     * @return matriz resultante da subtração.
+     * @param m - matriz que subtraira a matriz atual.
+     * @return matriz resultante da subtracao.
      */
     public Matrix minus(Matrix m) {
         Matrix mam = new Matrix(new double[cells.length][cells[0].length]);
@@ -65,10 +86,10 @@ public class Matrix {
     }
 
     /**
-     * Retorna a matriz resultante da multiplicação entre duas matrizes.
+     * Retorna a matriz resultante da multiplicacao entre duas matrizes.
      * 
-     * @param m - matriz que multiplicará a matriz atual.
-     * @return matriz resultante da multiplicação.
+     * @param m - matriz que multiplicara a matriz atual.
+     * @return matriz resultante da multiplicacao.
      */
     public Matrix times(Matrix m) {
         Matrix mam = new Matrix(new double[cells.length][m.cells[0].length]);
@@ -84,10 +105,10 @@ public class Matrix {
     }
 
     /**
-     * Retorna a matriz resultante da multiplicação de uma matriz por um escalar.
+     * Retorna a matriz resultante da multiplicacao de uma matriz por um escalar.
      * 
-     * @param e - escalar que multiplicará a matriz atual.
-     * @return matriz resultante da multiplicação.
+     * @param e - escalar que multiplicara a matriz atual.
+     * @return matriz resultante da multiplicacao.
      */
     public Matrix times(double e) {
         Matrix mam = new Matrix(new double[cells.length][cells[0].length]);
@@ -101,18 +122,18 @@ public class Matrix {
     }
 
     /**
-     * Verifica se a matriz é quadrada.
+     * Verifica se a matriz e quadrada.
      * 
-     * @return true se a matriz for quadrada, false caso contrário.
+     * @return true se a matriz for quadrada, false caso contrario.
      */
     public boolean isSquare() {
         return cells.length == cells[0].length;
     }
 
     /**
-     * Verifica se a matriz é simétrica.
+     * Verifica se a matriz e simetrica.
      * 
-     * @return true se a matriz for simétrica, false caso contrário.
+     * @return true se a matriz for simetrica, false caso contrario.
      */
     public boolean isSymmetric() {
         if (!this.isSquare()) return false;
@@ -147,7 +168,7 @@ public class Matrix {
         StringBuilder str = new StringBuilder();
         for (double[] line : cells) {
             for (double col : line) {
-                str.append(String.format("%.6f ", col));
+                str.append(String.format("%10.6f", col));
             }
             str.append('\n');
         }
